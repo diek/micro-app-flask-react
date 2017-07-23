@@ -1,7 +1,11 @@
 version: '2.1'
 
 services:
-
+  memcached_img:
+    container_name: memcached-img
+    build: ./project/memcached
+    ports:
+      - 11211:11211
   users-db:
     container_name: users-db
     build: ./project/db
