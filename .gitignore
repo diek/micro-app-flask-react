@@ -2,3 +2,4 @@ __pycache__
 _env/
 notes.md
 sample.rst
+.env
