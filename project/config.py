@@ -6,7 +6,6 @@ import os
 
 class BaseConfig:
     """docstring for Base Configuration"""
-    import pdb; pdb.set_trace()
     DEBUG = False
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
