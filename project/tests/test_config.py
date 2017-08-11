@@ -1,11 +1,13 @@
-# project/tests/tests_config.py
+# project/tests/test_config.py
 
 import unittest
 
 from flask import current_app
 from flask_testing import TestCase
 
-from project import app
+from project import create_app
+
+app = create_app()
 
 
 class TestDevelopmentConfig(TestCase):
@@ -14,7 +16,7 @@ class TestDevelopmentConfig(TestCase):
         return app
 
     def test_app_is_development(self):
-        self.assertTrue(app.config['SECRET_KEY'] == 'bacon')
+        self.assertTrue(app.config['SECRET_KEY'] is 'bacon')
         self.assertTrue(app.config['DEBUG'] is True)
         self.assertFalse(current_app is None)
         self.assertTrue(
@@ -29,7 +31,7 @@ class TestTestingConfig(TestCase):
         return app
 
     def test_app_is_testing(self):
-        self.assertTrue(app.config['SECRET_KEY'] == 'bacon')
+        self.assertTrue(app.config['SECRET_KEY'] is 'bacon')
         self.assertTrue(app.config['DEBUG'])
         self.assertTrue(app.config['TESTING'])
         self.assertFalse(app.config['PRESERVE_CONTEXT_ON_EXCEPTION'])
@@ -45,7 +47,7 @@ class TestProductionConfig(TestCase):
         return app
 
     def test_app_is_production(self):
-        self.assertTrue(app.config['SECRET_KEY'] == 'bacon')
+        self.assertTrue(app.config['SECRET_KEY'] is 'bacon')
         self.assertFalse(app.config['DEBUG'])
         self.assertFalse(app.config['TESTING'])
 
