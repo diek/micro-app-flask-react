@@ -5,27 +5,27 @@ import os
 
 
 class BaseConfig:
-    """docstring for Base Configuration"""
+    """Base configuration"""
     DEBUG = False
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SECRET_KEY = 'bacon'
+    SECRET_KEY = 'my_precious'
 
 
 class DevelopmentConfig(BaseConfig):
-    """docstring for Development Configuration"""
+    """Development configuration"""
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 
 class TestingConfig(BaseConfig):
-    """docstring for Testing Config"""
+    """Testing configuration"""
     DEBUG = True
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_TEST_URL')
 
 
 class ProductionConfig(BaseConfig):
-    """docstring for Production Config"""
+    """Production configuration"""
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
