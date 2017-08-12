@@ -2,20 +2,17 @@
 
 
 import os
-from flask import Flask  # , jsonify
+from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
 
-# instantiate the app
-app = Flask(__name__)
-
-
 # instantiate the db
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 
 def create_app():
-    # Instantiate the app
+
+    # instantiate the app
     app = Flask(__name__)
 
     # set config
@@ -30,4 +27,3 @@ def create_app():
     app.register_blueprint(users_blueprint)
 
     return app
-

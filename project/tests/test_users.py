@@ -2,6 +2,7 @@
 
 import json
 
+from project import db
 from project.tests.base import BaseTestCase
 
 

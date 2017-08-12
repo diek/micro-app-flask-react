@@ -1,5 +1,6 @@
 # project/tests/base.py
 
+
 from flask_testing import TestCase
 
 from project import create_app, db
@@ -19,3 +20,4 @@ class BaseTestCase(TestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+
